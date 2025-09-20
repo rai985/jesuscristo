@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://d4he41igw7o84"]
+
+[ext_resource type="Texture2D" uid="uid://dbgqiviegpwj7" path="res://Sprits/Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="1_dswdo"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_icuco"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26tpt"]
+atlas = ExtResource("1_dswdo")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hit86"]
+atlas = ExtResource("1_dswdo")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sou01"]
+atlas = ExtResource("1_dswdo")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nu32"]
+atlas = ExtResource("1_dswdo")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqymt"]
+atlas = ExtResource("1_dswdo")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dpag"]
+atlas = ExtResource("1_dswdo")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch5t6"]
+atlas = ExtResource("1_dswdo")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n47y0"]
+atlas = ExtResource("1_dswdo")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8krx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26tpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hit86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sou01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nu32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqymt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dpag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch5t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n47y0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Background" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+texture_filter = 1
+position = Vector2(516, 263)
+script = ExtResource("1_icuco")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-6, 3)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_8krx3")
+animation = &"walk"

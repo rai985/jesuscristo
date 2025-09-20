@@ -1,0 +1,16 @@
+res://prefabs/Skeleton.tscn
+res://scripts/Enemy/Enemy.gd
+res://scripts/Enemy/Skeleton.gd
+res://scenes/background.tscn
+res://scripts/Player/player.gd
+res://scenes/health_bar.gd
+res://prefabs/HealthBar.tscn
+res://scenes/HealthBar.gd
+res://scripts/Player/Archer.gd
+res://prefabs/PlayerHealthBar.tscn
+res://prefabs/Archer.tscn
+res://prefabs/UI/HealthBar.tscn
+res://prefabs/UI/PlayerHealthBar.tscn
+res://scripts/UI/HealthBar.gd
+res://Components/enemy_detect_area.tscn
+res://prefabs/Swordsman.tscn
