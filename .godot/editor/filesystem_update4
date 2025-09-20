@@ -14,3 +14,4 @@ res://prefabs/UI/PlayerHealthBar.tscn
 res://scripts/UI/HealthBar.gd
 res://Components/enemy_detect_area.tscn
 res://prefabs/Swordsman.tscn
+res://prefabs/UI/Player1HealthBar.tscn

@@ -7,11 +7,13 @@ var player: Node2D = null
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
+
 #encontrar o jogador na cena!!
 func _ready():
 	super._ready()
 	player = get_tree().get_first_node_in_group("Player")
 	set_state(State.IDLE)
+	
 
 
 func _process(delta: float) -> void:

@@ -21,6 +21,9 @@ var rotated = 0.0
 var shoting = false
 var shoting_recharge = false
 
+func _ready():
+	super._ready() # <--- ESTA LINHA FOI ADICIONADA/MODIFICADA
+
 func _physics_process(delta: float) -> void:
 	# movimentação base
 	

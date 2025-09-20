@@ -9,3 +9,7 @@ func update_health_bar(current_health: int, max_health: int):
 	show()
 	if current_health <= 0:
 		hide()
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

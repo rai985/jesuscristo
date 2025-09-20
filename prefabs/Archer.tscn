@@ -1,11 +1,12 @@
-[gd_scene load_steps=47 format=3 uid="uid://bmpl4yem60uf6"]
+[gd_scene load_steps=52 format=3 uid="uid://bmpl4yem60uf6"]
 
 [ext_resource type="Script" path="res://scripts/Player/Archer.gd" id="1_uktf1"]
 [ext_resource type="PackedScene" uid="uid://cefiqj6fenbps" path="res://prefabs/arrow.tscn" id="2_3x18r"]
 [ext_resource type="Texture2D" uid="uid://b8owsu3rljjvj" path="res://Sprits/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Archer/Archer with shadows/Archer-Attack01.png" id="2_j23cf"]
-[ext_resource type="PackedScene" uid="uid://c6nyh2k4oeqkr" path="res://prefabs/UI/PlayerHealthBar.tscn" id="3_sv130"]
+[ext_resource type="PackedScene" uid="uid://c6y7p6khrw863" path="res://prefabs/UI/PlayerHealthBar.tscn" id="3_0e1xa"]
 [ext_resource type="Texture2D" uid="uid://carlyowb6eibu" path="res://Sprits/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Archer/Archer with shadows/Archer-Idle.png" id="3_xt176"]
 [ext_resource type="Texture2D" uid="uid://ddjgbg4nfg54q" path="res://Sprits/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Archer/Archer with shadows/Archer-Walk.png" id="4_ar241"]
+[ext_resource type="Texture2D" uid="uid://kwov2daf58pb" path="res://Sprits/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Archer/Archer/Archer-Death.png" id="5_sa4c4"]
 [ext_resource type="Texture2D" uid="uid://7odjrtdmk8p0" path="res://Sprits/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Archer/Archer with shadows/Archer-Attack02.png" id="6_5p2eb"]
 [ext_resource type="Script" path="res://Components/ZPosCalculator.gd" id="7_dkp20"]
 [ext_resource type="PackedScene" uid="uid://28lgvdw4gvh6" path="res://Components/enemy_detect_area.tscn" id="8_tpcdd"]
@@ -45,6 +46,22 @@ region = Rect2(700, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqisa"]
 atlas = ExtResource("2_j23cf")
 region = Rect2(800, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7st0"]
+atlas = ExtResource("5_sa4c4")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gufwy"]
+atlas = ExtResource("5_sa4c4")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ar2q"]
+atlas = ExtResource("5_sa4c4")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goegs"]
+atlas = ExtResource("5_sa4c4")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t65d3"]
 atlas = ExtResource("3_xt176")
@@ -186,6 +203,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_e7st0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gufwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ar2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goegs")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t65d3")
 }, {
 "duration": 1.0,
@@ -283,17 +317,18 @@ size = Vector2(56, 86)
 
 [node name="Archer" type="CharacterBody2D" groups=["Player"]]
 texture_filter = 1
-position = Vector2(530, 307)
+position = Vector2(654, 291)
 script = ExtResource("1_uktf1")
 Arrow = ExtResource("2_3x18r")
-health_bar_scene = ExtResource("3_sv130")
+max_health = 50
+health_bar_scene = ExtResource("3_0e1xa")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 8)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_g5mpn")
-animation = &"Walk"
+animation = &"Death"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -308,3 +343,9 @@ script = ExtResource("7_dkp20")
 CanMove = true
 
 [node name="EnemyDetectArea" parent="." instance=ExtResource("8_tpcdd")]
+
+[node name="PlayerHealthBar" parent="." instance=ExtResource("3_0e1xa")]
+offset_left = -90.0
+offset_top = -71.0
+offset_right = 83.0
+offset_bottom = -51.0
